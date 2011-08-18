@@ -148,6 +148,8 @@ module Formtastic
 
         singularizer = defined?(ActiveModel::Naming.singular) ? ActiveModel::Naming.method(:singular) : ActionController::RecordIdentifier.method(:singular_class_name)
 
+        options[:html][:class] = @@default_form_class
+
         with_custom_field_error_proc do
           self.form_for(record_or_name_or_array, *(args << options), &proc)
         end
